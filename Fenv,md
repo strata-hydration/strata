@@ -1,0 +1,33 @@
+# =============================
+# STRATA Hydration - Production Environment Template
+# Copy this to .env.production (local) or configure in your hosting provider.
+# =============================
+
+# Runtime
+NODE_ENV=production
+NEXT_PUBLIC_BASE_URL=https://your-domain.com
+NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
+
+# Payments (Razorpay)
+RAZORPAY_KEY_ID=rzp_live_xxxxx
+RAZORPAY_KEY_SECRET=your_razorpay_secret
+RAZORPAY_WEBHOOK_SECRET=your_razorpay_webhook_secret
+NEXT_PUBLIC_RAZORPAY_KEY_ID=rzp_live_xxxxx
+
+# Auth
+JWT_SECRET=replace_with_a_long_random_secret
+
+# Email (optional)
+GMAIL_USER=you@example.com
+GMAIL_APP_PASSWORD=your_app_password
+CONTACT_INBOX_EMAIL=hello@stratahydration.com
+
+# Social links (optional)
+NEXT_PUBLIC_INSTAGRAM_LINK=https://instagram.com/your-page
+NEXT_PUBLIC_WHATSAPP_LINK=https://wa.me/911234567890
+NEXT_PUBLIC_TWITTER_LINK=https://x.com/your-handle
+
+# Marketplace checkout links (client-visible)
+# If either is empty or missing, app shows a "Launching Soon" modal on click.
+NEXT_PUBLIC_AMAZON_BUY_LINK=https://www.amazon.in/your-product-link
+NEXT_PUBLIC_ZEPTO_BUY_LINK=https://www.zeptonow.com/your-product-link
