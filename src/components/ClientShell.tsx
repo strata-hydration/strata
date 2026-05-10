@@ -1,6 +1,7 @@
 'use client';
 
 import dynamic from 'next/dynamic';
+import { Suspense } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ToastContainer from '@/components/Toast';
@@ -12,7 +13,9 @@ const Mascot = dynamic(() => import('@/components/Mascot'), { ssr: false });
 export default function ClientShell({ children }: { children: React.ReactNode }) {
   return (
     <main className="relative min-h-screen w-full overflow-x-hidden overflow-y-visible underwater-bg">
-      <GoogleAnalytics />
+      <Suspense fallback={null}>
+        <GoogleAnalytics />
+      </Suspense>
       <div
         className="pointer-events-none absolute inset-0 z-0 opacity-35"
         style={{
