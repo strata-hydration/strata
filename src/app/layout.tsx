@@ -71,6 +71,10 @@ export const metadata: Metadata = {
   title: "STRATA HYDRATION | Electrolyte Drink Mix",
   description: "Electrolyte powered hydration designed for daily performance. No Added Sugar, 5 kcal, and 1540 mg electrolytes per stick. Fuel your day with STRATA Hydration.",
   keywords: ["hydration", "electrolyte", "drink mix", "citrus lime", "no added sugar", "vegan"],
+  icons: {
+    icon: '/logo.png',
+    apple: '/logo.png',
+  },
 };
 
 export const viewport = {
