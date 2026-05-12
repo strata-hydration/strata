@@ -28,8 +28,6 @@ function StarRating({ rating }: { rating: number }) {
   );
 }
 
-const reviewBgImages = ['/fieldeng-voice.png', '/DataScience-voice.png', '/boxer-voice.png', '/runner-voice.png','/mom-voice.png', '/gammer-voice.png'];
-
 export default function VoicesSection() {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
@@ -292,9 +290,7 @@ export default function VoicesSection() {
                             <div
                               className="absolute inset-0"
                               style={{
-                                backgroundImage: `url(${reviewBgImages[index]})`,
-                                backgroundSize: 'cover',
-                                backgroundPosition: 'center top',
+                                background: `linear-gradient(135deg, ${review.color}15 0%, ${review.color}08 100%)`,
                               }}
                             />
                             <div
