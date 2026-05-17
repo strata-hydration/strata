@@ -6,7 +6,7 @@
 # Runtime
 NODE_ENV=production
 NEXT_PUBLIC_BASE_URL=https://your-domain.com
-NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
+NEXT_PUBLIC_GA_MEASUREMENT_ID=G-KBJN9CMFVD
 
 # Payments (Razorpay)
 RAZORPAY_KEY_ID=rzp_live_xxxxx
@@ -17,9 +17,9 @@ NEXT_PUBLIC_RAZORPAY_KEY_ID=rzp_live_xxxxx
 # Auth
 JWT_SECRET=replace_with_a_long_random_secret
 
-# Email (optional)
-GMAIL_USER=you@example.com
-GMAIL_APP_PASSWORD=your_app_password
+# Email (optional) 
+GMAIL_USER=hello@stratahydration.com
+GMAIL_APP_PASSWORD="gyctpweurljlvfvg"
 CONTACT_INBOX_EMAIL=hello@stratahydration.com
 
 # Social links (optional)
