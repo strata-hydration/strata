@@ -22,14 +22,15 @@ function normalizeExternalUrl(raw?: string): string {
 const BUY_LINKS = {
   amazon: normalizeExternalUrl(process.env.NEXT_PUBLIC_AMAZON_BUY_LINK),
   zepto: normalizeExternalUrl(process.env.NEXT_PUBLIC_ZEPTO_BUY_LINK),
+  blinkit: normalizeExternalUrl(process.env.NEXT_PUBLIC_BLINKIT_BUY_LINK),
 } as const;
 
 export default function CheckoutPage() {
   const [mode, setMode] = useState<'explore' | 'cart'>('explore');
-  const [launchingMarketplace, setLaunchingMarketplace] = useState<'Amazon' | 'Zepto' | null>(null);
+  const [launchingMarketplace, setLaunchingMarketplace] = useState<'Amazon' | 'Zepto' | 'Blinkit' | null>(null);
   const items = useCartStore((s) => s.items);
 
-  const handleMarketplaceClick = (name: 'Amazon' | 'Zepto', url: string) => {
+  const handleMarketplaceClick = (name: 'Amazon' | 'Zepto' | 'Blinkit', url: string) => {
     trackEvent('checkout_marketplace_click', {
       marketplace: name.toLowerCase(),
       context: 'checkout_explore',
@@ -152,17 +153,28 @@ export default function CheckoutPage() {
               </div>
             </motion.button>
 
-            <div className="relative overflow-hidden rounded-[1.75rem] border border-slate-200/80 bg-white/60 p-9 sm:p-10 lg:p-11 opacity-75 backdrop-blur-xl shadow-[0_16px_44px_rgba(100,116,139,0.14)] min-h-[22rem] sm:min-h-[24rem]">
-              <div className="absolute inset-0 bg-[linear-gradient(145deg,rgba(247,247,248,0.92),rgba(236,239,242,0.9))]" />
+            <motion.button
+              type="button"
+              onClick={() => handleMarketplaceClick('Blinkit', BUY_LINKS.blinkit)}
+              whileHover={{ y: -8, scale: 1.01 }}
+              className="group relative isolate overflow-hidden rounded-[1.75rem] border border-yellow-200/80 bg-white/60 p-9 text-left sm:p-10 lg:p-11 backdrop-blur-xl shadow-[0_16px_44px_rgba(234,179,8,0.18)] min-h-[22rem] sm:min-h-[24rem]"
+            >
+              <div className="absolute inset-0 bg-[linear-gradient(145deg,rgba(255,252,235,0.9),rgba(254,243,199,0.85))]" />
+              <motion.div
+                aria-hidden
+                className="pointer-events-none absolute -left-20 top-0 hidden h-full w-20 rotate-[18deg] transform-gpu bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.55),transparent)] sm:block"
+                animate={{ x: ['-10%', '520%'] }}
+                transition={{ duration: 2.8, repeat: Infinity, repeatDelay: 0.8, ease: 'easeInOut', delay: 0.7 }}
+              />
               <div className="relative z-10 flex h-full flex-col">
-                <div className="mb-5 flex h-20 w-20 items-center justify-center rounded-3xl bg-slate-300/25 text-4xl font-black text-slate-700">S</div>
-                <h3 className="font-display text-2xl font-black uppercase text-slate-700">Website</h3>
-                <p className="mt-2 text-sm font-semibold text-slate-600">Direct cart checkout service</p>
-                <div className="mt-auto pt-6 inline-flex items-center rounded-full border border-slate-300 bg-white/70 px-4 py-2 text-xs font-bold uppercase tracking-wider text-slate-500">
-                  Coming Soon
+                <div className="mb-5 flex h-20 w-20 items-center justify-center rounded-3xl bg-yellow-400/20 text-4xl font-black text-yellow-800">B</div>
+                <h3 className="font-display text-2xl font-black uppercase text-slate-900">Blinkit</h3>
+                <p className="mt-2 text-sm font-semibold text-slate-700">Ultra-fast delivery checkout</p>
+                <div className="mt-auto pt-6 inline-flex items-center gap-2 rounded-full border border-yellow-400/40 bg-white/80 px-4 py-2 text-xs font-bold uppercase tracking-wider text-yellow-800">
+                  Open Blinkit <span aria-hidden>→</span>
                 </div>
               </div>
-            </div>
+            </motion.button>
           </motion.div>
         ) : (
           <motion.aside

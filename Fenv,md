@@ -23,11 +23,16 @@ GMAIL_APP_PASSWORD="gyctpweurljlvfvg"
 CONTACT_INBOX_EMAIL=hello@stratahydration.com
 
 # Social links (optional)
+# If any social link is not provided, clicking it will redirect to /refuel (contact page)
 NEXT_PUBLIC_INSTAGRAM_LINK=https://instagram.com/your-page
+NEXT_PUBLIC_FACEBOOK_LINK=https://facebook.com/your-page
 NEXT_PUBLIC_WHATSAPP_LINK=https://wa.me/911234567890
 NEXT_PUBLIC_TWITTER_LINK=https://x.com/your-handle
+NEXT_PUBLIC_LINKEDIN_LINK=https://linkedin.com/company/your-company
+NEXT_PUBLIC_YOUTUBE_LINK=https://youtube.com/@your-channel
 
 # Marketplace checkout links (client-visible)
 # If either is empty or missing, app shows a "Launching Soon" modal on click.
 NEXT_PUBLIC_AMAZON_BUY_LINK=https://www.amazon.in/your-product-link
 NEXT_PUBLIC_ZEPTO_BUY_LINK=https://www.zeptonow.com/your-product-link
+NEXT_PUBLIC_BLINKIT_BUY_LINK=https://www.blinkit.com/your-product-link
