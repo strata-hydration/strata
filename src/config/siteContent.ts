@@ -364,7 +364,7 @@ export const refuelContent = {
     'Questions, collabs, or just wanna say hi? Drop a message — we flow right back.',
   formTitle: 'Send A Ripple 💧',
   formFields: {
-    name: { label: 'Your Name', placeholder: 'e.g. Shivam' },
+    name: { label: 'Your Name', placeholder: 'e.g. Jennifer' },
     email: { label: 'Email', placeholder: 'you@example.com' },
     message: { label: 'Message', placeholder: "What's on your mind?" },
   },
