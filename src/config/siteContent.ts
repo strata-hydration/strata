@@ -285,7 +285,7 @@ export const voicesContent = {
   reviews: [
     {
       name: 'T',
-      role: 'Field Engineer',
+      role: 'Tanmayee',
       avatar: '🏗',
       rating: 5,
       text: "On-site 12 hours in 40°C heat. Strata is the only thing that keeps me from crashing by noon. My crew thinks I'm built different — nah, I'm just hydrated.",
@@ -294,20 +294,10 @@ export const voicesContent = {
       rotate: -2,
       floatDuration: 5,
     },
-    {
-      name: 's',
-      role: 'Data Scientist',
-      avatar: '📊',
-      rating: 5,
-      text: 'Training models till 3am. Coffee gave me anxiety. Strata gives clarity. My code quality literally improved after I switched — brain fog is not a vibe.',
-      tag: 'Focus',
-      color: '#00E5FF',
-      rotate: 1.5,
-      floatDuration: 6,
-    },
+
     {
       name: 'K',
-      role: 'Boxer',
+      role: 'Krishna',
       avatar: '🥊',
       rating: 5,
       text: 'Twelve rounds in the ring and I still feel locked in. Strata before sparring is non-negotiable now. No crash, just pure knockout energy.',
@@ -318,7 +308,7 @@ export const voicesContent = {
     },
     {
       name: 'M',
-      role: 'Ultramarathon Runner',
+      role: 'Mason',
       avatar: '🏃',
       rating: 5,
       text: '100km runs used to drain me fast. Switched to Strata for hydration and my recovery time dropped by 40%. No bloating, just pure electrolyte sync. This is endurance mode unlocked.',
@@ -327,9 +317,20 @@ export const voicesContent = {
       rotate: 2,
       floatDuration: 5.8,
     },
+        {
+      name: 'S',
+      role: 'Shivam',
+      avatar: '📊',
+      rating: 5,
+      text: 'Training models till 3am. Coffee gave me anxiety. Strata gives clarity. My code quality literally improved after I switched — brain fog is not a vibe.',
+      tag: 'Focus',
+      color: '#00E5FF',
+      rotate: 1.5,
+      floatDuration: 6,
+    },
     {
       name: 'R',
-      role: 'Mom of Three',
+      role: 'Rosalie',
       avatar: '👩‍👧‍👦',
       rating: 5,
       text: 'Juggling work, kids, and sanity. One Strata sachet and I go from drained to actually present. My kids noticed the difference in my energy — no more short temper, just hydration and patience.',
@@ -340,7 +341,7 @@ export const voicesContent = {
     },
     {
       name: 'J',
-      role: 'Esports Pro',
+      role: 'Jayden',
       avatar: '🎮',
       rating: 5,
       text: '8-hour tournament grind? Strata keeps me sharp. My frame rate and reaction time both went up. Sponsors noticed. Teammates noticed. Even my hydration noticed. GG Strata.',

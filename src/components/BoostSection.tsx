@@ -151,7 +151,7 @@ export default function BoostSection() {
   return (
     <section
       id="how-it-works"
-      className="relative flex min-h-0 flex-col overflow-hidden sm:h-[92svh] sm:min-h-0"
+      className="relative flex min-h-svh flex-col overflow-hidden sm:h-[92svh] sm:min-h-0"
       style={{
         background:
           'radial-gradient(circle at top right, rgba(255,255,255,0.8), transparent 24%), linear-gradient(165deg, #EDF9FF 0%, #DDF1FF 30%, #C2E4FF 60%, #A5D2F7 85%, #8CC2EC 100%)',
@@ -181,8 +181,8 @@ export default function BoostSection() {
         />
       </div>
 
-      <div className="relative z-10 flex flex-1 items-start justify-center px-3 py-0 sm:items-center sm:px-5 sm:py-5 lg:px-7 lg:py-6">
-        <div className="mx-auto grid h-full w-full max-w-[1240px] grid-rows-[auto_1fr_auto] place-items-center gap-5 rounded-[32px] border border-white/45 bg-[linear-gradient(180deg,rgba(255,255,255,0.44),rgba(255,255,255,0.18))] px-4 py-0 shadow-[0_32px_120px_rgba(15,83,154,0.16)] backdrop-blur-[18px] sm:h-[calc(100%-1.25rem)] sm:gap-6 sm:px-6 sm:py-8 lg:h-[calc(100%-1.5rem)] lg:gap-8 lg:px-8 lg:py-10 xl:px-10">
+      <div className="relative z-10 flex flex-1 items-center justify-center px-3 py-0 sm:items-center sm:px-5 sm:py-5 lg:px-7 lg:py-6">
+        <div className="mx-auto grid h-[calc(100%-1rem)] w-full max-w-[1240px] grid-rows-[auto_1fr_auto] place-items-center gap-5 rounded-[32px] border border-white/45 bg-[linear-gradient(180deg,rgba(255,255,255,0.44),rgba(255,255,255,0.18))] px-4 py-0 shadow-[0_32px_120px_rgba(15,83,154,0.16)] backdrop-blur-[18px] sm:h-[calc(100%-1.25rem)] sm:gap-6 sm:px-6 sm:py-8 lg:h-[calc(100%-1.5rem)] lg:gap-8 lg:px-8 lg:py-10 xl:px-10">
           <motion.div
             className="flex w-full max-w-4xl flex-col items-center justify-center text-center"
             initial={{ opacity: 0, y: 18 }}

@@ -50,7 +50,7 @@ export default function SipSection() {
   return (
     <section
       id="how-to-use"
-      className="relative flex flex-col items-center overflow-hidden my-6 px-3 pt-6 pb-10 sm:my-8 sm:px-4 sm:pt-8 sm:pb-12 lg:my-10 lg:px-6 lg:pt-10 lg:pb-14"
+      className="relative flex min-h-svh flex-col items-center justify-center overflow-hidden my-0 px-3 pt-6 pb-10 sm:my-8 sm:px-4 sm:pt-8 sm:pb-12 lg:my-10 lg:px-6 lg:pt-10 lg:pb-14"
       style={{
         background:
           'radial-gradient(circle at top right, rgba(16,185,129,0.12), transparent 28%), linear-gradient(165deg, #ECFDF5 0%, #D1FAE5 30%, #A7F3D0 60%, #6EE7B7 85%, #6EE7B7 100%)',
