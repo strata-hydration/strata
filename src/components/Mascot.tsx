@@ -3,32 +3,69 @@
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { useEffect, useState, useCallback, useRef } from 'react';
 
-const thoughts = [
-  { text: 'bestie your body is literally 60% water, hydrate or cry about it 💧', speak: 'bestie your body is literally sixty percent water, hydrate or cry about it' },
-  { text: 'sugar drinks are giving delulu energy, STRATA is giving real science 🧪', speak: 'sugar drinks are giving delulu energy, STRATA is giving real science' },
-  { text: 'not me losing 25% focus cuz I forgot to drink water again 😵‍💫', speak: 'not me losing twenty five percent focus cuz I forgot to drink water again' },
-  { text: 'no added sugar, zero cap, just electrolytes doing their thing ⚡', speak: 'no added sugar, zero cap, just electrolytes doing their thing' },
-  { text: 'your brain is 75% water, no wonder you can\'t think straight rn 🧠', speak: 'your brain is seventy five percent water, no wonder you can\'t think straight right now' },
-  { text: 'sodium + potassium + magnesium = the holy trinity of hydration 🧬', speak: 'sodium plus potassium plus magnesium equals the holy trinity of hydration' },
-  { text: 'energy drinks are so last gen, we doing electrolytes now 💪', speak: 'energy drinks are so last gen, we doing electrolytes now' },
-  { text: 'skin looking rough? that\'s dehydration tea sis, not skincare ✨', speak: 'skin looking rough? that\'s dehydration tea sis, not skincare' },
-  { text: 'STRATA hydrates 3x better than plain water, that\'s not opinion that\'s math 📐', speak: 'STRATA hydrates three times better than plain water, that\'s not opinion that\'s math' },
-  { text: 'dehydration out here wrecking your mood, gains AND glow-up 😤', speak: 'dehydration out here wrecking your mood, gains AND glow up' },
-  { text: 'vegan, gluten-free, no added sugar — clean formula only no cap 🍃', speak: 'vegan, gluten free, no added sugar, clean formula only no cap' },
-  { text: 'sipping STRATA at the gym is giving main character energy 🏆', speak: 'sipping STRATA at the gym is giving main character energy' },
-  { text: 'fun fact: muscles literally can\'t fire without electrolytes 🔥', speak: 'fun fact, muscles literally can\'t fire without electrolytes' },
-  { text: 'if you\'re thirsty you\'re already 2% dehydrated, that\'s an L 🚰', speak: 'if you\'re thirsty you\'re already two percent dehydrated, that\'s an L' },
-  { text: 'sugar crashes are giving flop era, electrolytes are giving slay era 🔬', speak: 'sugar crashes are giving flop era, electrolytes are giving slay era' },
-  { text: 'hydration is the og performance hack, everything else is marketing 🎯', speak: 'hydration is the oh gee performance hack, everything else is marketing' },
-  { text: 'STRATA said clean ingredients or nothing, we don\'t do artificial 🌱', speak: 'STRATA said clean ingredients or nothing, we don\'t do artificial' },
-  { text: 'coffee girlies hear me out — electrolytes hit different before noon ☀️', speak: 'coffee girlies hear me out, electrolytes hit different before noon' },
-  { text: 'your kidneys are working overtime rn and you won\'t even hydrate? 💀', speak: 'your kidneys are working overtime right now and you won\'t even hydrate?' },
-  { text: 'low-key dehydration is why your headache won\'t go away 🤕', speak: 'lowkey dehydration is why your headache won\'t go away' },
-  { text: 'STRATA = that girl energy but make it hydration 💅', speak: 'STRATA equals that girl energy but make it hydration' },
-  { text: 'imagine performing at 100% — that\'s hydrated you, unhinged 🚀', speak: 'imagine performing at a hundred percent, that\'s hydrated you, unhinged' },
-  { text: 'electrolytes literally regulate your heartbeat, kinda important ngl 💓', speak: 'electrolytes literally regulate your heartbeat, kinda important not gonna lie' },
-  { text: 'drop the sugary mid drinks and level up fr fr 📈', speak: 'drop the sugary mid drinks and level up for real for real' },
-  { text: 'STRATA is giving hydration meets hustle meets science era 🧊', speak: 'STRATA is giving hydration meets hustle meets science era' },
+type ThoughtTone = 'coach' | 'lab' | 'calm';
+
+const thoughts: Array<{ text: string; speak: string; tone: ThoughtTone }> = [
+  {
+    text: 'Hydration first. Hype later. Fill the tank, then chase the day.',
+    speak: 'Hydration first. Hype later. Fill the tank, then chase the day.',
+    tone: 'coach',
+  },
+  {
+    text: 'Sugar gives fireworks. Electrolytes build power lines.',
+    speak: 'Sugar gives fireworks. Electrolytes build power lines.',
+    tone: 'lab',
+  },
+  {
+    text: 'Your focus does not disappear. It dries out. Sip and lock in.',
+    speak: 'Your focus does not disappear. It dries out. Sip and lock in.',
+    tone: 'coach',
+  },
+  {
+    text: 'Sodium, potassium, magnesium. Quiet ingredients. Loud results.',
+    speak: 'Sodium, potassium, magnesium. Quiet ingredients. Loud results.',
+    tone: 'lab',
+  },
+  {
+    text: 'Plain water is good. Balanced electrolytes are strategic.',
+    speak: 'Plain water is good. Balanced electrolytes are strategic.',
+    tone: 'lab',
+  },
+  {
+    text: 'If your head feels foggy, your system may be thirsty before it is tired.',
+    speak: 'If your head feels foggy, your system may be thirsty before it is tired.',
+    tone: 'calm',
+  },
+  {
+    text: 'This is not a sugar rush. This is baseline restored.',
+    speak: 'This is not a sugar rush. This is baseline restored.',
+    tone: 'calm',
+  },
+  {
+    text: 'Training day or desk day, your cells still need charge.',
+    speak: 'Training day or desk day, your cells still need charge.',
+    tone: 'coach',
+  },
+  {
+    text: 'When hydration is right, everything else feels lighter.',
+    speak: 'When hydration is right, everything else feels lighter.',
+    tone: 'calm',
+  },
+  {
+    text: 'Think sharper. Recover faster. Stay steadier.',
+    speak: 'Think sharper. Recover faster. Stay steadier.',
+    tone: 'coach',
+  },
+  {
+    text: 'Your body runs on chemistry, not vibes. Respect the formula.',
+    speak: 'Your body runs on chemistry, not vibes. Respect the formula.',
+    tone: 'lab',
+  },
+  {
+    text: 'Hydrate before the crash, not after the regret.',
+    speak: 'Hydrate before the crash, not after the regret.',
+    tone: 'coach',
+  },
 ];
 
 export default function Mascot() {
@@ -37,6 +74,8 @@ export default function Mascot() {
   const [blink, setBlink] = useState(false);
   const [currentThought, setCurrentThought] = useState<typeof thoughts[0] | null>(null);
   const lastIndex = useRef(-1);
+  const lastVoiceIndex = useRef(-1);
+  const voiceCache = useRef<{ female: SpeechSynthesisVoice[]; male: SpeechSynthesisVoice[]; neutral: SpeechSynthesisVoice[] }>({ female: [], male: [], neutral: [] });
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -44,6 +83,31 @@ export default function Mascot() {
       setTimeout(() => setBlink(false), 200);
     }, 4000 + Math.random() * 3000);
     return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === 'undefined' || !('speechSynthesis' in window)) return;
+
+    const categorizeVoices = () => {
+      const voices = window.speechSynthesis.getVoices();
+      if (!voices.length) return;
+
+      const englishVoices = voices.filter((voice) => /^en(-|_)/i.test(voice.lang) || /english/i.test(voice.lang));
+      const pool = englishVoices.length ? englishVoices : voices;
+
+      const female = pool.filter((v) => /zira|aria|jenny|hazel|sonia|samantha|karen|fiona|victoria|female|woman|ms|mrs/i.test(v.name));
+      const male = pool.filter((v) => /david|mark|guy|daniel|james|george|tom|michael|male|man|mr|microsoft andrew/i.test(v.name));
+      const neutral = pool.filter((v) => !female.includes(v) && !male.includes(v));
+
+      voiceCache.current = { female: female.length ? female : pool, male: male.length ? male : pool, neutral };
+    };
+
+    categorizeVoices();
+    window.speechSynthesis.onvoiceschanged = categorizeVoices;
+
+    return () => {
+      window.speechSynthesis.onvoiceschanged = null;
+    };
   }, []);
 
   const handleClick = useCallback(() => {
@@ -57,30 +121,51 @@ export default function Mascot() {
     const thought = thoughts[idx];
     setCurrentThought(thought);
 
-    // Speak it with alternating male/female energetic voices
+    // Speak the thought with stable, less robotic delivery using tone-appropriate voices.
     if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
       window.speechSynthesis.cancel();
       const utterance = new SpeechSynthesisUtterance(thought.speak);
-      
-      const voices = window.speechSynthesis.getVoices();
-      const enVoices = voices.filter(v => /en/i.test(v.lang));
-      const femaleVoices = enVoices.filter(v => /zira|aria|jenny|hazel|sonia|samantha|karen|fiona|female/i.test(v.name));
-      const maleVoices = enVoices.filter(v => /david|mark|guy|daniel|james|george|male/i.test(v.name));
-      
-      // Alternate between male and female based on index
-      const useFemale = idx % 2 === 0;
-      const pool = useFemale ? femaleVoices : maleVoices;
-      const fallback = useFemale ? maleVoices : femaleVoices;
-      const picked = pool.length > 0
-        ? pool[Math.floor(Math.random() * pool.length)]
-        : fallback.length > 0
-          ? fallback[Math.floor(Math.random() * fallback.length)]
-          : enVoices[Math.floor(Math.random() * enVoices.length)] || null;
-      if (picked) utterance.voice = picked;
-      
-      utterance.rate = 0.9 + Math.random() * 0.1;
-      utterance.pitch = useFemale ? 1.3 + Math.random() * 0.2 : 0.9 + Math.random() * 0.2;
-      utterance.volume = 1;
+
+      // Pick voice based on tone - rotate through pool to get different voice each click
+      let voicePool: SpeechSynthesisVoice[] = [];
+      if (thought.tone === 'coach') {
+        voicePool = voiceCache.current.male.length ? voiceCache.current.male : voiceCache.current.neutral;
+      } else if (thought.tone === 'lab') {
+        voicePool = voiceCache.current.male.length ? voiceCache.current.male : voiceCache.current.neutral;
+      } else {
+        voicePool = voiceCache.current.female.length ? voiceCache.current.female : voiceCache.current.neutral;
+      }
+
+      if (voicePool.length === 0) {
+        voicePool = window.speechSynthesis.getVoices();
+      }
+
+      // Pick random voice, avoid repeating the last one
+      let voiceIdx = Math.floor(Math.random() * voicePool.length);
+      if (voicePool.length > 1) {
+        while (voiceIdx === lastVoiceIndex.current) {
+          voiceIdx = Math.floor(Math.random() * voicePool.length);
+        }
+      }
+      lastVoiceIndex.current = voiceIdx;
+
+      const selectedVoice = voicePool[voiceIdx];
+      if (selectedVoice) {
+        utterance.voice = selectedVoice;
+      }
+
+      if (thought.tone === 'coach') {
+        utterance.rate = 0.98 + Math.random() * 0.03;
+        utterance.pitch = 0.95 + Math.random() * 0.08;
+      } else if (thought.tone === 'lab') {
+        utterance.rate = 0.92 + Math.random() * 0.03;
+        utterance.pitch = 0.92 + Math.random() * 0.06;
+      } else {
+        utterance.rate = 0.9 + Math.random() * 0.03;
+        utterance.pitch = 1.05 + Math.random() * 0.08;
+      }
+
+      utterance.volume = 0.95;
       utterance.onend = () => setCurrentThought(null);
       window.speechSynthesis.speak(utterance);
     } else {
