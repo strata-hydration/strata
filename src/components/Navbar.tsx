@@ -193,7 +193,8 @@ export default function Navbar() {
 
           {/* Right — cart + account + shop */}
           <div className="flex items-center justify-end md:justify-center gap-5 md:gap-7 shrink-0">
-            <Link href="/cart">
+            {/* Cart icon hidden from the main UI */}
+            {/* <Link href="/cart">
               <motion.div
                 className="relative text-white/90 hover:text-white transition-colors"
                 whileHover={{ scale: 1.15 }}
@@ -202,7 +203,7 @@ export default function Navbar() {
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 md:w-[20px] md:h-[20px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
               </motion.div>
-            </Link>
+            </Link> */}
             <Link href="/products">
               <motion.div
                 className="px-4 py-1.5 md:px-6 md:py-2 rounded-full text-xs md:text-sm font-bold uppercase tracking-wider bg-white/15 text-white hover:bg-white hover:text-blue-600 transition-all"
