@@ -34,9 +34,9 @@ export default function CartPage() {
   const total = useCartStore((s) => s.totalPaise());
   const itemCount = useCartStore((s) => s.itemCount());
   const [viewMode, setViewMode] = useState<'explore' | 'cart'>('explore');
-  const [launchingMarketplace, setLaunchingMarketplace] = useState<'Amazon' | 'Zepto' | null>(null);
+  const [launchingMarketplace, setLaunchingMarketplace] = useState<'Amazon' | 'Zepto' | 'Blinkit' | null>(null);
 
-  const handleMarketplaceClick = (name: 'Amazon' | 'Zepto', url: string) => {
+  const handleMarketplaceClick = (name: 'Amazon' | 'Zepto' | 'Blinkit', url: string) => {
     trackEvent('checkout_marketplace_click', {
       marketplace: name.toLowerCase(),
       context: 'cart_explore',
